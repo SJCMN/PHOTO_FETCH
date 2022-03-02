@@ -1,25 +1,18 @@
 <div class="card">
   <div class="card-image">
-    <figure>
-      <img
-        *ngIf="photoUrl"
-        [src]="photoUrl.urls.regular"
-        alt="Placeholder image"
-      />
+    <figure *ngIf="photoUrl" class="image">
+      <img [src]="photoUrl.urls.regular" alt="Placeholder image" />
     </figure>
-    <div class="card-content">
-      <div 
-      class="media"
-      *ngIf="photoUrl.user.profile_image.large"
-      >
-        <div class="media-left">
-          <figure class="image is-64x64">
-            <img
-              [src]="photoUrl.user.profile_image.large"
-              alt="Placeholder image"
-            />
-          </figure>
-        </div>
+  </div>
+  <div class="card-content">
+    <div class="media" *ngIf="photoUrl.user.profile_image.large">
+      <div class="media-left">
+        <figure class="image is-64x64">
+          <img
+            [src]="photoUrl.user.profile_image.large"
+            alt="Placeholder image"
+          />
+        </figure>
       </div>
       <div class="media-content">
         <p class="title is-4" *ngIf="photoUrl.user.name">
@@ -35,10 +28,10 @@
         <div class="content">
           {{ photoUrl.description }}
         </div>
-        <footer class="card-footer">
-          <button (click)="onClick()" class="button">Fetch Photo</button>
-        </footer>
-      </div>
     </div>
   </div>
+  <footer class="card-footer">
+    <button (click)="onClick()" class="button">Fetch Photo</button>
+  </footer>
+</div>
 </div>
