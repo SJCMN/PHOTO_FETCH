@@ -3,12 +3,12 @@ import { HttpClient } from '@angular/common/http';
 import { pluck } from 'rxjs/operators';
 
 interface UnsplashResponse {
-  query: {
+  
     description: string,
     urls: {
       regular: string
     }
-  }; 
+   
 }
 
 @Injectable({
@@ -25,7 +25,9 @@ export class PhotoService {
         Authorization: `Client-ID ${this.accessKey}`
       }
     })
-    .pipe(pluck('description', 'urls'))
+    .pipe(
+      pluck('urls', 'regular')
+      )
   }
 
 };
