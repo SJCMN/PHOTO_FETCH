@@ -8,10 +8,21 @@
       />
     </figure>
     <div class="card-content">
+      <div 
+      class="media"
+      *ngIf="photoUrl.user.profile_image.large"
+      >
+        <div class="media-left">
+          <figure class="image is-64x64">
+            <img
+              [src]="photoUrl.user.profile_image.large"
+              alt="Placeholder image"
+            />
+          </figure>
+        </div>
+      </div>
       <div class="media-content">
-        <p class="title is-4"
-            *ngIf="photoUrl.user.name"
-        >
+        <p class="title is-4" *ngIf="photoUrl.user.name">
           {{ photoUrl.user.name }}
         </p>
         <p class="subtitle is-6">
@@ -25,7 +36,7 @@
           {{ photoUrl.description }}
         </div>
         <footer class="card-footer">
-            <button (click)="onClick()" class="button">Fetch Photo</button>
+          <button (click)="onClick()" class="button">Fetch Photo</button>
         </footer>
       </div>
     </div>
