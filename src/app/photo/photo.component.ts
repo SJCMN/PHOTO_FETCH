@@ -9,9 +9,15 @@ import { PhotoService } from '../photo.service';
 export class PhotoComponent implements OnInit {
   photoUrl: string = '';
 
-  constructor(private photoService: PhotoService) {}
+  constructor(private photoService: PhotoService) {
+    this.fetchPhoto();
+  }
 
   ngOnInit(): void {}
+
+  onClick(){
+    this.fetchPhoto();
+  }
 
   fetchPhoto() {
     this.photoService.getPhoto().subscribe((photo) => {
