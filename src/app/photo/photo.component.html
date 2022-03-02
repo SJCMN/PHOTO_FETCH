@@ -1,5 +1,19 @@
-<h2>Photo</h2>
-<div>
-    <img [src]="photoUrl">
-    <button (click)="fetchPhoto()">Fetch Photo</button>
+
+<div class="card">
+  <div class="card-image">
+    <figure>
+      <img [src]="photoUrl" alt="Placeholder image" />
+    </figure>
+    <div class="card-content">
+      <div class="media-content">
+        <p class="title is-4">Photo</p>
+        <p class="subtitle is-6">@author</p>
+        <button (click)="fetchPhoto()" class="button">Fetch Photo</button>
+        <div class="content">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+        Phasellus nec iaculis mauris.
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
