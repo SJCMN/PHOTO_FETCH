@@ -24,6 +24,6 @@ export class PhotoService {
           Authorization: `Client-ID ${this.accessKey}`,
         },
       })
-      .pipe(pluck('urls', 'regular'));
+      
   }
 }

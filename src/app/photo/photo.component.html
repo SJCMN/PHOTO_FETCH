@@ -1,18 +1,32 @@
-
 <div class="card">
   <div class="card-image">
     <figure>
-      <img *ngIf="photoUrl" [src]="photoUrl" alt="Placeholder image" />
+      <img
+        *ngIf="photoUrl"
+        [src]="photoUrl.urls.regular"
+        alt="Placeholder image"
+      />
     </figure>
     <div class="card-content">
       <div class="media-content">
-        <p class="title is-4">Photo</p>
-        <p class="subtitle is-6">@author</p>
-        <button (click)="onClick()" class="button">Fetch Photo</button>
+        <p class="title is-4"
+            *ngIf="photoUrl.user.name"
+        >
+          {{ photoUrl.user.name }}
+        </p>
+        <p class="subtitle is-6">
+          {{
+            photoUrl.user.twitter_username
+              ? photoUrl.user.twitter_username
+              : photoUrl.user.instagram_username
+          }}
+        </p>
         <div class="content">
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-        Phasellus nec iaculis mauris.
+          {{ photoUrl.description }}
         </div>
+        <footer class="card-footer">
+            <button (click)="onClick()" class="button">Fetch Photo</button>
+        </footer>
       </div>
     </div>
   </div>

@@ -7,10 +7,11 @@ import { PhotoService } from '../photo.service';
   styleUrls: ['./photo.component.css'],
 })
 export class PhotoComponent implements OnInit {
-  photoUrl: string = '';
+  photoUrl: any = {};
 
   constructor(private photoService: PhotoService) {
     this.fetchPhoto();
+    
   }
 
   ngOnInit(): void {}
@@ -22,6 +23,7 @@ export class PhotoComponent implements OnInit {
   fetchPhoto() {
     this.photoService.getPhoto().subscribe((photo) => {
       this.photoUrl = photo;
+      console.log(photo)
     });
   }
 }
